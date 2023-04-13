@@ -21,7 +21,7 @@ public class SavingAccountTest {
     @Test
     public void checkIncorrectBalance() {
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new SavingAccount(300, 500, 10_000, 5);
+            new SavingAccount(3_000, 500, 2_000, 5);
         });
     }
 
