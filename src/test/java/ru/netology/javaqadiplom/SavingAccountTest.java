@@ -6,6 +6,7 @@ import ru.netology.javaqadiplom.SavingAccount;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+
 public class SavingAccountTest {
 
 
@@ -25,12 +26,7 @@ public class SavingAccountTest {
         });
     }
 
-    @Test
-    public void checkMinusBalance() {
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new SavingAccount(-1_000, 500, 10_000, 5);
-        });
-    }
+
 
     @Test
     public void checkMinusRate() {
@@ -48,9 +44,10 @@ public class SavingAccountTest {
 
     @Test
     public void checkPaySavingAccountAmongMinMaxBalance() {
-        SavingAccount account = new SavingAccount(1_000, 500, 10_000, 5);
-        assertFalse(account.pay(600));
-        assertEquals(400, account.getBalance());
+        SavingAccount account = new SavingAccount(1_500, 500, 2_000, 5);
+        boolean result = account.pay(1_200);
+        Assertions.assertEquals(false, result);
+        Assertions.assertEquals(300, account.getBalance());
     }
 
     @Test

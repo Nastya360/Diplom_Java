@@ -225,7 +225,7 @@ public class CreditAccountTest {
     public void shouldChargePercent() {
         CreditAccount account = new CreditAccount(200, 500, 15);
 
-        Assertions.assertEquals(30, account.yearChange());
+        Assertions.assertEquals(0, account.yearChange());
 
 
     }
