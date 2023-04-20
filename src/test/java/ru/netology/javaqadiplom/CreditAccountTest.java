@@ -52,35 +52,22 @@ public class CreditAccountTest {
 
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new CreditAccount(-500, 500, 5);;
+            new CreditAccount(-500, 500, 5);
+            ;
         });
 
     }
 
-    @Test
-    public void shouldPointToAnExceptionWhenInitialBalanceIsZero() {
-
-
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new CreditAccount(0, 500, 5);;
-        });
-
-    }
 
     @Test
     public void shouldPointToAnExceptionWhenCreditLimitIsNotPositive() {
 
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new CreditAccount(500, -500, 5);;
+            new CreditAccount(500, -500, 5);
+            ;
         });
     }
-    @Test
-    public void shouldPointToAnExceptionWhenCreditLimitIsZero() {
 
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new CreditAccount(500, 0, 5);;
-        });
-    }
 
     @Test
     public void shouldPointToAnExceptionWhenRateIsNotPositive() {
@@ -91,14 +78,6 @@ public class CreditAccountTest {
 
     }
 
-    @Test
-    public void shouldPointToAnExceptionWhenRateIsZero() {
-
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            new CreditAccount(500, 500, 0);
-        });
-
-    }
 
     @Test
     public void paymentShouldBeSuccessfulWhenAmountLessThanTheInitialBalance() {
@@ -230,9 +209,35 @@ public class CreditAccountTest {
 
     }
 
+    @Test
+    public void shouldGetCreditLimitWhenCreditLimitIsZero() {
+        CreditAccount account = new CreditAccount(10, 0, 5);
+
+        Assertions.assertEquals(0, account.getCreditLimit());
+
+
+    }
+
+    @Test
+    public void shouldGetInitialBalanceWhenInitialBalanceIsZero() {
+        CreditAccount account = new CreditAccount(0, 10, 5);
+
+        Assertions.assertEquals(0, account.getBalance());
+
+
+    }
+
+    @Test
+    public void shouldGetRateWhenRateIsZero() {
+        CreditAccount account = new CreditAccount(10, 10, 0);
+
+        Assertions.assertEquals(0, account.getRate());
+
+
+    }
+
 
 }
-
 
 
 
